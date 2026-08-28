@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{SUBJECT}</title>
+
+    <style type="text/css">
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+        font-size: 12px;
+        line-height: 18px;
+        color: inherit;
+
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        color: #1e1e1e;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .content {
+        width: 600px;
+        margin: auto;
+        background-color: #f7f7f7;
+      }
+
+      .header {
+        padding: 24px 32px;
+        background-color: #153b50;
+      }
+
+      .header-logo {
+        display: block;
+        height: 28px;
+      }
+
+      .body {
+        padding: 32px;
+        padding-bottom: 56px;
+      }
+
+      .footer {
+        padding: 32px;
+        background-color: #153b50;
+        color: #e1e5ea;
+      }
+
+      .footer-logo {
+        display: block;
+        height: 20px;
+      }
+
+      .code {
+        display: inline-block;
+        padding: 16px 24px;
+        border: 3px solid #17f5d0;
+
+        letter-spacing: 8px;
+        font-size: 20px;
+        color: #153b50;
+        font-weight: 700;
+      }
+
+      .footer-social {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .mb-32 {
+        margin-bottom: 32px;
+      }
+
+      .mb-16 {
+        margin-bottom: 16px;
+      }
+
+      .mb-12 {
+        margin-bottom: 12px;
+      }
+
+      .mb-8 {
+        margin-bottom: 8px;
+      }
+
+      .mb-4 {
+        margin-bottom: 4px;
+      }
+
+      .mr-20 {
+        margin-right: 20px;
+      }
+
+      .pl-24 {
+        padding-left: 24px;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background-color: #153b50;
+
+        width: 240px;
+        max-width: 100%;
+
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 500;
+      }
+
+      .link {
+        color: #1c7ed6;
+        font-weight: semibold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <header class="header">
+        <img src="{LOGO}" alt="" class="header-logo" />
+      </header>
+      <div class="body">{CONTENT}</div>
+      <footer class="footer">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div>
+                  <div class="mb-12">
+                    <img src="{LOGO}" alt="" class="footer-logo" />
+                  </div>
+                  <div>
+                    <a href="{SOCIAL_LINK_X}" class="mr-20">
+                      <img src="{SOCIAL_LOGO_X}" class="footer-social" />
+                    </a>
+                    <a href="{SOCIAL_LINK_LINKEDIN}" class="mr-20">
+                      <img src="{SOCIAL_LOGO_LINKEDIN}" class="footer-social" />
+                    </a>
+                    <a href="{SOCIAL_LINK_INSTAGRAM}" class="mr-20">
+                      <img src="{SOCIAL_LOGO_INSTAGRAM}" class="footer-social" />
+                    </a>
+                    <a href="{SOCIAL_LINK_FACEBOOK}">
+                      <img src="{SOCIAL_LOGO_FACEBOOK}" class="footer-social" />
+                    </a>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="text-right">
+                  <p class="mb-12">{SUPPORT_EMAIL}</p>
+                  <p>{SUPPORT_TELEPHONE}</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </footer>
+    </div>
+  </body>
+</html>

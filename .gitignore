@@ -1,0 +1,12 @@
+node_modules/
+
+dist/
+
+.env*
+
+keys/
+logs/
+
+.DS_Store
+
+dump.rdb
