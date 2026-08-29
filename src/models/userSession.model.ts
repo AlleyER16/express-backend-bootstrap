@@ -11,7 +11,7 @@ export class UserSession {
 
   @ManyToOne(() => User, (user) => user.sessions)
   @JoinColumn({
-    name: "userId",
+    name: "user_id",
   })
   user!: User;
 
