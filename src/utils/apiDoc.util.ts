@@ -9,8 +9,8 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Test APP API",
-      description: "API endpoints for a test app services documented on swagger",
+      title: `${env.app.name} Backend API`,
+      description: `API endpoints for a ${env.app.name} documented on swagger`,
       version: "1.0.0",
     },
     servers: [
