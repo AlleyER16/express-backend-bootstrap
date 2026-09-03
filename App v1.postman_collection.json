@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "878b5333-72d6-4ed8-b28c-61b2bd5336c6",
+    "_postman_id": "c1e503cc-612d-4824-a103-fae7a93fb5f1",
     "name": "App v1",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "56413282",
-    "_collection_link": "https://go.postman.co/collection/56413282-878b5333-72d6-4ed8-b28c-61b2bd5336c6?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/56413282-c1e503cc-612d-4824-a103-fae7a93fb5f1?source=collection_link"
   },
   "item": [
     {
@@ -148,6 +148,40 @@
               "path": [
                 "account",
                 "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "App",
+      "item": [
+        {
+          "name": "Test Upload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [
+                    "/Users/mac/Documents/me no tag 2.jpg"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/upload",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "upload"
               ]
             }
           },
