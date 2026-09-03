@@ -13,8 +13,8 @@ import env from "../env";
 
 @Service()
 export default class UserRepository {
-  user = postgresDataSource.getRepository(User);
-  userSession = postgresDataSource.getRepository(UserSession);
+  private user = postgresDataSource.getRepository(User);
+  private userSession = postgresDataSource.getRepository(UserSession);
 
   // User
   async createUser(payload: { full_name: string; email: string; password: string }) {
