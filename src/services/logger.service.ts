@@ -3,7 +3,7 @@ import path from "path";
 
 export default class LoggerService {
   static getLogFile() {
-    const logDir = path.join(process.cwd(), "logs/__app-logs"); // Directory for logs
+    const logDir = process.env.LOG_DIR || path.join(process.cwd(), "logs/__app-logs"); // Directory for logs
     const logFile = path.join(logDir, `logs_${new Date().toISOString().slice(0, 10)}.log`);
 
     // Ensure the directory exists

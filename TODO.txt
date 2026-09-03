@@ -1,3 +1,4 @@
 - Add better seeder setup
 - Graceful application shutdown everywhere there is process.exit()
 - Add GitHub actions CI/CD workflow
+- Detailed update to README.md: From project setup to deploy infra

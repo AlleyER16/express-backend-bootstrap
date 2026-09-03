@@ -1,7 +1,7 @@
 import path from "path";
 import dotenv from "dotenv";
 
-dotenv.config({ path: path.join(process.cwd(), ".env") });
+dotenv.config({ path: process.env.ENV_FILE || path.join(process.cwd(), ".env") });
 
 export default {
   port: process.env.PORT || 9000,
@@ -36,7 +36,7 @@ export default {
     url: process.env.DB_URL!,
     type: process.env.DB_TYPE! as any,
     ssl: process.env.DB_SSL! === "true",
-    certificate: process.env.DB_CERTIFICATE ? path.join(process.cwd(), `keys/${process.env.DB_CERTIFICATE}`) : undefined,
+    certificate: process.env.DB_CERTIFICATE ? process.env.DB_CERTIFICATE : undefined,
   },
 
   redis: {
