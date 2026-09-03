@@ -15,7 +15,9 @@ export default class AppService {
     return ServiceResponse.success(`Welcome to ${env.app.name} Backend API`, {});
   }
 
-  async testUpload(file: Express.MulterS3.File) {
+  async testUpload(file?: Express.MulterS3.File) {
+    if (!file) ServiceResponse.error("File is required");
+
     await this.awsS3Service.moveFile(file.key, `test-upload/${path.basename(file.key)}`);
 
     return ServiceResponse.success("File uploaded successfully", {});

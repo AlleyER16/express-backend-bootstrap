@@ -1,5 +1,6 @@
 import Container from "typedi";
-import { Get, JsonController, Post, UploadedFile, UseBefore } from "routing-controllers";
+import { Request } from "express";
+import { Get, JsonController, Post, Req, UseBefore } from "routing-controllers";
 
 import rateLimiter from "../middlewares/rateLimit.middleware";
 
@@ -36,10 +37,36 @@ export default class AppController {
     return this.appService.rootPath();
   }
 
+  /**
+   * @openapi
+   * /upload:
+   *   post:
+   *     summary: Upload a file
+   *     tags:
+   *       - App
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         multipart/form-data:
+   *           schema:
+   *             type: object
+   *             required:
+   *               - file
+   *             properties:
+   *               file:
+   *                 type: string
+   *                 format: binary
+   *                 description: File to upload
+   *     responses:
+   *       200:
+   *         description: File uploaded successfully
+   *       400:
+   *         description: Invalid file format
+   */
   @Post("/upload")
   @UseBefore(rateLimiter(1, 1))
   @UseBefore(FileUploadService.fileUpload())
-  async testUpload(@UploadedFile("file") file: Express.MulterS3.File) {
-    return await this.appService.testUpload(file);
+  async testUpload(@Req() req: Request) {
+    return await this.appService.testUpload(req.file as Express.MulterS3.File | undefined);
   }
 }

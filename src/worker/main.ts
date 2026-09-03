@@ -16,7 +16,7 @@ class WorkerClass {
   // Inject all classes here
   constructor(private emailService: EmailService) {}
 
-  // This assumes all jobs will be promise type which should be mostly trie
+  // This assumes all jobs will be promise type which should be mostly true
   async doJob(data: tWorkerJob) {
     switch (data.name) {
       case "SAY_HELLO": {
