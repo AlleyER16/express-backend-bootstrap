@@ -18,6 +18,16 @@ export default class AWSS3Service {
     );
   }
 
+  async copyFile(filePath: string, newFilePath: string) {
+    await client.send(
+      new CopyObjectCommand({
+        Bucket: env.aws.bucket,
+        CopySource: `${env.aws.bucket}/${filePath}`,
+        Key: `${newFilePath}`,
+      }),
+    );
+  }
+
   async deleteFile(filePath: string) {
     await client.send(
       new DeleteObjectCommand({
@@ -28,14 +38,7 @@ export default class AWSS3Service {
   }
 
   async moveFile(filePath: string, newFilePath: string) {
-    await client.send(
-      new CopyObjectCommand({
-        Bucket: env.aws.bucket,
-        CopySource: `${env.aws.bucket}/${filePath}`,
-        Key: `${newFilePath}`,
-      }),
-    );
-
+    await this.copyFile(filePath, newFilePath);
     await this.deleteFile(filePath);
   }
 }

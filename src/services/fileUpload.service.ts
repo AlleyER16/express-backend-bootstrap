@@ -1,10 +1,8 @@
 import multer from "multer";
-import { Service } from "typedi";
 import { HttpError } from "routing-controllers";
 
 import { storage } from "../utilities/aws-s3/config";
 
-@Service()
 export default class FileUploadService {
   static __getMulterInstance(allowedMimeTypes: string[], fileSizeLimit: number) {
     return multer({
