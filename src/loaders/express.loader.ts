@@ -5,6 +5,7 @@ import { createServer } from "http";
 import { useExpressServer } from "routing-controllers";
 import { MicroframeworkSettings } from "microframework-w3tec";
 
+import NotFoundMiddleware from "../middlewares/notFound.middleware";
 import HttpErrorHandlerMiddleware from "../middlewares/errorHandler.middleware";
 
 import LoggerService from "../services/logger.service";
@@ -30,7 +31,7 @@ export default function (settings: MicroframeworkSettings | undefined) {
     classTransformer: true,
     defaultErrorHandler: false,
     controllers,
-    middlewares: [HttpErrorHandlerMiddleware],
+    middlewares: [HttpErrorHandlerMiddleware, NotFoundMiddleware],
   });
 
   const httpServer = createServer(expressInstance);
