@@ -27,6 +27,8 @@ export default function (settings: MicroframeworkSettings | undefined) {
   expressInstance.use(cors());
   expressInstance.use(morgan(env.nodeEnv === "production" ? "combined" : "dev"));
 
+  swaggerDocs(expressInstance);
+
   useExpressServer(expressInstance, {
     classTransformer: true,
     defaultErrorHandler: false,
@@ -40,8 +42,6 @@ export default function (settings: MicroframeworkSettings | undefined) {
 
   httpServer.listen(env.port, function () {
     LoggerService.log("info", `Application running successfully on ${env.port}`);
-
-    swaggerDocs(expressInstance);
 
     settings.onShutdown(() => {
       httpServer.close();
